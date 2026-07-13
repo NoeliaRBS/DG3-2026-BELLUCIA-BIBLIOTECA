@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Biblioteca UX — TRASTES / Luthería de autor</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@400;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="cover">
+    <div class="wrap">
+      <p class="cover__eyebrow">Biblioteca UX · Design System</p>
+      <h1>TRASTES<em>Luthería de autor</em></h1>
+      <p>Recursos de diseño extraídos del sitio real (<code style="font-family:var(--mono);color:var(--green)">index.html</code> / <code style="font-family:var(--mono);color:var(--green)">styles.css</code>): paleta de color, tipografía, espaciados, componentes, íconos y sistema responsive utilizados en el proyecto.</p>
+      <div class="cover__meta">
+        <div><strong>Tipo de proyecto</strong>Landing page — luthería</div>
+        <div><strong>Sistema tipográfico</strong>Bebas Neue + Lato</div>
+        <div><strong>Paleta</strong>Negro + verde ácido</div>
+        <div><strong>Breakpoints</strong>420 / 640 / 768 / 900 / 1024 / 1210px</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. COLOR -->
+  <section class="doc">
+    <div class="wrap">
+      <div class="doc__head"><span class="doc__num">01</span><h2>Paleta de color</h2></div>
+      <p class="doc__intro">Definida como variables CSS en <code style="font-family:var(--mono);color:var(--green)">:root</code>. Toda la web se apoya en siete colores — dos neutros de acento y cinco de base — sin colores "sueltos" fuera del sistema.</p>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch__fill" style="background:#b7cd02"></div><div class="swatch__meta"><p class="swatch__name">Verde</p><p class="swatch__hex">--green: #b7cd02</p><p class="swatch__use">Acento principal: títulos destacados, botones primarios, hover states, iconografía.</p></div></div>
+        <div class="swatch"><div class="swatch__fill" style="background:#0a0a0a"></div><div class="swatch__meta"><p class="swatch__name">Negro</p><p class="swatch__hex">--black: #0a0a0a</p><p class="swatch__use">Fondo base de la mayoría de las secciones.</p></div></div>
+        <div class="swatch"><div class="swatch__fill" style="background:#111111"></div><div class="swatch__meta"><p class="swatch__name">Negro cálido</p><p class="swatch__hex">--dark: #111111</p><p class="swatch__use">Variante de fondo para tarjetas y superficies elevadas.</p></div></div>
+        <div class="swatch"><div class="swatch__fill" style="background:#ece7dc"></div><div class="swatch__meta"><p class="swatch__name">Crema</p><p class="swatch__hex">--cream: #ece7dc</p><p class="swatch__use">Acento textural (franja rasgada entre secciones).</p></div></div>
+        <div class="swatch"><div class="swatch__fill" style="background:#e4dfd2"></div><div class="swatch__meta"><p class="swatch__name">Crema 2</p><p class="swatch__hex">--cream-2: #e4dfd2</p><p class="swatch__use">Variante de crema para detalles de textura.</p></div></div>
+        <div class="swatch"><div class="swatch__fill" style="background:#ffffff;border-bottom:1px solid #333"></div><div class="swatch__meta"><p class="swatch__name">Blanco</p><p class="swatch__hex">--white: #ffffff</p><p class="swatch__use">Texto principal sobre fondo oscuro.</p></div></div>
+        <div class="swatch"><div class="swatch__fill" style="background:#b8b8b8"></div><div class="swatch__meta"><p class="swatch__name">Gris</p><p class="swatch__hex">--grey: #b8b8b8</p><p class="swatch__use">Texto secundario: descripciones, subtítulos, placeholders.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. TYPE -->
+  <section class="doc">
+    <div class="wrap">
+      <div class="doc__head"><span class="doc__num">02</span><h2>Tipografía</h2></div>
+      <p class="doc__intro">Dos familias con roles fijos: <strong>Bebas Neue</strong> para todo título (condensada, de alto impacto) y <strong>Lato</strong> para todo texto de lectura, botones y formularios.</p>
+
+      <div class="type-row">
+        <div class="type-row__label">Display / H1</div>
+        <div class="type-row__sample"><span style="font-family:var(--font-display); font-size:56px; line-height:.95;">TU SONIDO MERECE UNA</span></div>
+        <div class="type-row__meta">Bebas Neue · clamp(58px,8.6vw,116px)</div>
+      </div>
+      <div class="type-row">
+        <div class="type-row__label">Display / H2</div>
+        <div class="type-row__sample"><span style="font-family:var(--font-display); font-size:42px;">MATERIALES <em style="color:var(--green); font-style:normal;">QUE USAMOS</em></span></div>
+        <div class="type-row__meta">Bebas Neue · clamp(34px,5vw,52px)</div>
+      </div>
+      <div class="type-row">
+        <div class="type-row__label">Cuerpo</div>
+        <div class="type-row__sample"><span style="font-family:var(--font-sub); font-size:17px; color:var(--grey);">Sumate a nuestros cursos y aprendé a armar tu guitarra desde cero.</span></div>
+        <div class="type-row__meta">Lato Regular · 17px / 1.5</div>
+      </div>
+      <div class="type-row">
+        <div class="type-row__label">Botón</div>
+        <div class="type-row__sample"><span style="font-family:var(--font-sub); font-weight:700; font-size:13px; letter-spacing:1.5px;">VER CURSOS</span></div>
+        <div class="type-row__meta">Lato Bold · 13px · letter-spacing 1.5px</div>
+      </div>
+      <div class="type-row">
+        <div class="type-row__label">Etiqueta / caption</div>
+        <div class="type-row__sample"><span style="font-family:var(--font-sub); font-weight:900; font-size:11px; letter-spacing:.8px;">FRESNO</span></div>
+        <div class="type-row__meta">Lato Black · 11px</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SPACING & TOKENS -->
+  <section class="doc">
+    <div class="wrap">
+      <div class="doc__head"><span class="doc__num">03</span><h2>Tokens de layout</h2></div>
+      <p class="doc__intro">Variables globales que controlan el ancho de contenido, la altura del header y el tamaño repetido de los íconos de servicios.</p>
+      <table class="tokens">
+        <tr><th>Variable</th><th>Valor</th><th>Uso</th></tr>
+        <tr><td><code>--container</code></td><td>1240px</td><td>Ancho máximo de contenido en todas las secciones (igual que Materiales, Servicios, etc.)</td></tr>
+        <tr><td><code>--nav-h</code></td><td>81px (64px en mobile)</td><td>Altura del header fijo — usada también en <code>scroll-padding-top</code> para que el anclaje de menú no quede tapado</td></tr>
+        <tr><td><code>--services-icon-size</code></td><td>73px</td><td>Tamaño repetido de los 3 íconos de "Servicios que más realizamos"</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- 4. BUTTONS -->
+  <section class="doc">
+    <div class="wrap">
+      <div class="doc__head"><span class="doc__num">04</span><h2>Botones</h2></div>
+      <p class="doc__intro">Dos variantes sobre una base compartida (<code style="font-family:var(--mono);color:var(--green)">.btn</code>): sólido para la acción principal, contorno para acciones secundarias. Ambos suben 3px al pasar el mouse.</p>
+      <div class="demo">
+        <div class="demo__row">
+          <button class="btn btn--primary">VER CURSOS</button>
+          <button class="btn btn--outline">INSCRIBIRME</button>
+        </div>
+        <p class="demo__caption">.btn.btn--primary — background:var(--green); color:#101000  ·  .btn.btn--outline — border 1px solid var(--green)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CARDS -->
+  <section class="doc">
+    <div class="wrap">
+      <div class="doc__head"><span class="doc__num">05</span><h2>Tarjetas</h2></div>
+      <p class="doc__intro">Patrón reutilizado en Cursos: superficie oscura con borde sutil, que se eleva 8px y tiñe el borde de verde al hacer hover.</p>
+      <div class="demo">
+        <div class="demo__row">
+          <div class="course-card-demo">
+            <div class="course-card-demo__img"></div>
+            <h3>INTRODUCCIÓN A LA LUTHERÍA</h3>
+            <p>Aprendé herramientas, maderas y procesos básicos.</p>
+            <span class="tag">📊 Nivel: Principiante</span><span class="tag">🕐 6 semanas</span>
+            <span class="price">$120.000</span>
+            <button class="btn btn--outline" style="width:100%;">INSCRIBIRME</button>
+          </div>
+        </div>
+        <p class="demo__caption">.course-card — background:#131313; border:1px solid rgba(255,255,255,.06); hover → translateY(-8px)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FORMS -->
+  <section class="doc">
+    <div class="wrap">
+      <div class="doc__head"><span class="doc__num">06</span><h2>Campos de formulario</h2></div>
+      <p class="doc__intro">Inputs minimalistas: sin caja, solo una línea inferior que pasa a verde en foco. Usados en "Hablemos de tu próximo instrumento".</p>
+      <div class="demo">
+        <div class="field-demo">
+          <label>Nombre</label>
+          <input type="text" placeholder="Tu nombre">
+        </div>
+        <p class="demo__caption">.contact__field — border-bottom:1px solid rgba(255,255,255,.25) → :focus border-color:var(--green)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. ICONS -->
+  <section class="doc">
+    <div class="wrap">
+      <div class="doc__head"><span class="doc__num">07</span><h2>Iconografía</h2></div>
+      <p class="doc__intro">Set de 8 íconos propios en <code style="font-family:var(--mono);color:var(--green)">assets/icons/</code>, todos PNG con fondo transparente.</p>
+      <div class="icon-grid">
+        <div class="icon-cell"><img src="assets/icons/icon-arrow.png" alt=""><span>icon-arrow.png</span></div>
+        <div class="icon-cell"><img src="assets/icons/icon-construccion.png" alt=""><span>icon-construccion.png</span></div>
+        <div class="icon-cell"><img src="assets/icons/icon-personalizacion.png" alt=""><span>icon-personalizacion.png</span></div>
+        <div class="icon-cell"><img src="assets/icons/icon-restauracion.png" alt=""><span>icon-restauracion.png</span></div>
+        <div class="icon-cell"><img src="assets/icons/icon-level.png" alt=""><span>icon-level.png</span></div>
+        <div class="icon-cell"><img src="assets/icons/icon-duration.png" alt=""><span>icon-duration.png</span></div>
+        <div class="icon-cell"><img src="assets/icons/icon-play.png" alt=""><span>icon-play.png</span></div>
+        <div class="icon-cell"><img src="assets/icons/icon-sound.png" alt=""><span>icon-sound.png</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. RESPONSIVE -->
+  <section class="doc">
+    <div class="wrap">
+      <div class="doc__head"><span class="doc__num">08</span><h2>Sistema responsive</h2></div>
+      <p class="doc__intro">Mobile-first en la composición visual, pero implementado con media queries "desktop-down". Breakpoints reales usados en el archivo, de mayor a menor.</p>
+      <div class="bp-row"><span class="bp-label">≤ 1210px</span><div class="bp-bar" style="width:92%"></div><span class="bp-use">Ajustes finos de tablet grande (corona de "Quiénes Somos", grilla de materiales)</span></div>
+      <div class="bp-row"><span class="bp-label">≤ 1024px</span><div class="bp-bar" style="width:80%"></div><span class="bp-use">Menú hamburguesa reemplaza la navegación horizontal</span></div>
+      <div class="bp-row"><span class="bp-label">≤ 900px</span><div class="bp-bar" style="width:68%"></div><span class="bp-use">Trabajos Realizados pasa a columna única</span></div>
+      <div class="bp-row"><span class="bp-label">≤ 768px</span><div class="bp-bar" style="width:56%"></div><span class="bp-use">Fondos de sección: control independiente de posición/tamaño</span></div>
+      <div class="bp-row"><span class="bp-label">≤ 640px</span><div class="bp-bar" style="width:44%"></div><span class="bp-use">Layout mobile completo: navegación, tipografía y composición apilada</span></div>
+      <div class="bp-row"><span class="bp-label">≤ 420px</span><div class="bp-bar" style="width:28%"></div><span class="bp-use">Ajustes finales para los celulares más angostos</span></div>
+    </div>
+  </section>
+
+  <!-- 9. MOTION -->
+  <section class="doc">
+    <div class="wrap">
+      <div class="doc__head"><span class="doc__num">09</span><h2>Motion &amp; efectos</h2></div>
+      <p class="doc__intro">Animación con GSAP + ScrollTrigger (reveals al hacer scroll) y Lenis (scroll suave), respetando <code style="font-family:var(--mono);color:var(--green)">prefers-reduced-motion</code> en toda la web.</p>
+      <div class="anim-card"><span class="anim-card__name">Hero — entrada de título y fondo</span><span class="anim-card__val">GSAP timeline · stagger .15s</span></div>
+      <div class="anim-card"><span class="anim-card__name">Reveals de sección</span><span class="anim-card__val">ScrollTrigger · fade + translateY</span></div>
+      <div class="anim-card"><span class="anim-card__name">Flip cards (Quiénes Somos)</span><span class="anim-card__val">transform: rotateY · perspective:1200px</span></div>
+      <div class="anim-card"><span class="anim-card__name">Botones (hover)</span><span class="anim-card__val">transform: translateY(-3px) · .35s ease</span></div>
+      <div class="anim-card"><span class="anim-card__name">Tarjetas de curso (hover)</span><span class="anim-card__val">transform: translateY(-8px) · border-color · .4s ease</span></div>
+      <div class="anim-card"><span class="anim-card__name">Scroll suave global</span><span class="anim-card__val">Lenis</span></div>
+      <div class="anim-card"><span class="anim-card__name">Accesibilidad</span><span class="anim-card__val">@media (prefers-reduced-motion: reduce) → animaciones desactivadas</span></div>
+    </div>
+  </section>
+
+  <footer class="doc">Biblioteca UX armada a partir de los recursos reales de css/styles.css e index.html del proyecto TRASTES.</footer>
+
+</body>
+</html>
