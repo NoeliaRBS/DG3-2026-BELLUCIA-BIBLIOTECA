@@ -19,7 +19,7 @@
     border-bottom:1px solid rgba(255,255,255,.08);
   }
   .cover__eyebrow{ font-family:var(--mono); font-size:12px; letter-spacing:2px; color:var(--green); text-transform:uppercase; margin:0 0 18px; }
-  .cover h1{ font-family:var(--font-display); font-weight:400; font-size:clamp(40px,7vw,84px); line-height:.95; margin:0; letter-spacing:1px; }
+  .cover h1{ font-family:var(--font-display); font-weight:400; font-size:clamp(40px,7vw,84px); line-height:.95; margin:0; letter-spacing:1px; transform:translate(-2px, 13px); }
   .cover h1 em{ font-style:normal; color:var(--green); display:block; }
   .cover p{ max-width:620px; color:var(--grey); font-size:17px; margin:22px 0 0; }
   .cover__meta{ display:flex; gap:40px; margin-top:40px; flex-wrap:wrap; }
@@ -104,8 +104,159 @@
 
   footer.doc{ padding:40px 32px; text-align:center; color:var(--grey); font-size:12px; font-family:var(--mono); }
 
-  @media (max-width:640px){
-    .cover{padding:60px 20px 44px;}
-    section.doc{padding:44px 20px;}
-    .type-row__label{width:100%;}
+  /* =======================================================================
+     RESPONSIVE LAYER — MOBILE (≤768px)
+     Desktop (≥769px) renders exclusively from the rules above this block —
+     nothing below is ever applied at those widths, so desktop stays
+     pixel-identical and untouched.
+     This is NOT a scaled-down desktop: every section below gets its own
+     mobile-specific composition (stacked cards, full-width bars, reflowed
+     grids, no horizontal scroll anywhere). Single breakpoint, as requested.
+     ======================================================================= */
+
+  @media (max-width:768px){
+
+    /* ---- Global shell ---- */
+    .wrap{ padding:0 20px; }
+
+    section.doc{ padding:40px 20px; }
+    .doc__head{ flex-wrap:wrap; row-gap:6px; margin-bottom:26px; }
+    .doc__head h2{ font-size:clamp(23px,6.5vw,28px); }
+    .doc__intro{ margin:-10px 0 26px; font-size:14px; }
+
+    .demo{ padding:20px; }
+
+    footer.doc{ padding:28px 20px; font-size:11px; }
+
+    /* ---- Cover ---- */
+    .cover{ padding:44px 20px 34px; }
+    .cover h1{ font-size:clamp(38px,13vw,54px); }
+    .cover p{ font-size:15px; }
+
+    /* Bloque de título (TRASTES / Luthería de autor): en mobile queda
+       muy pegado al borde superior. No tocamos tamaño ni diseño, solo
+       lo bajamos unos px. Ajustable acá sin afectar Desktop. */
+    .cover h1.hero-title{ transform:translateY(12px); }
+    .cover__meta{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px 16px;
+      margin-top:28px;
+    }
+
+    /* ---- 01. PALETA DE COLOR
+       Desktop: grid horizontal de chips. Mobile: una columna a ancho
+       completo, cada color como fila (franja de color + texto al lado)
+       en vez de tarjetas apiladas verticalmente en miniatura. ---- */
+    .swatches{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .swatch{
+      display:flex;
+      align-items:stretch;
+      width:100%;
+    }
+    .swatch__fill{
+      flex:0 0 84px;
+      width:84px;
+      height:auto;
+    }
+    .swatch__meta{ flex:1; min-width:0; padding:12px 14px; }
+
+    /* ---- 02. TIPOGRAFÍA
+       Desktop: label / muestra / meta en fila. Mobile: cada ejemplo
+       apilado en columna, uno debajo del otro. ---- */
+    .type-row{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:8px;
+      padding:18px 0;
+    }
+    .type-row__label{ width:auto; }
+    .type-row__sample{ width:100%; min-width:0; }
+    .type-row__sample span{ max-width:100%; display:inline-block; }
+
+    /* ---- 03. TOKENS DE LAYOUT
+       Desktop: tabla de 3 columnas. Mobile: cada fila se convierte en
+       una tarjeta con las etiquetas de columna como micro-labels —
+       nada de scroll horizontal ni texto microscópico. ---- */
+    table.tokens, table.tokens tbody{ display:block; width:100%; }
+    table.tokens tr{ display:block; border:1px solid rgba(255,255,255,.08); padding:14px; margin-bottom:12px; background:#131313; }
+    table.tokens tr:first-child{ display:none; }
+    table.tokens td{ display:block; padding:6px 0; border-bottom:none; }
+    table.tokens td:nth-child(1)::before{ content:"Variable"; }
+    table.tokens td:nth-child(2)::before{ content:"Valor"; }
+    table.tokens td:nth-child(3)::before{ content:"Uso"; }
+    table.tokens td::before{
+      display:block; font-family:var(--mono); font-size:10px; color:var(--green);
+      text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;
+    }
+
+    /* ---- 04. BOTONES
+       Desktop: botones en fila. Mobile: centrados, uno debajo del otro,
+       a ancho completo dentro de un máximo cómodo de lectura/toque. ---- */
+    .demo__row{
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+    }
+    .demo__row .btn{
+      width:100%;
+      max-width:340px;
+      text-align:center;
+    }
+
+    /* ---- 05. TARJETAS
+       Desktop: tarjeta angosta de 260px. Mobile: ocupa casi todo el
+       ancho disponible, sin miniaturas — la imagen crece con la tarjeta. ---- */
+    .course-card-demo{
+      width:100%;
+      max-width:420px;
+    }
+    .course-card-demo__img{ height:170px; }
+
+    /* ---- 06. FORMULARIO
+       Desktop: campo limitado a 320px. Mobile: ancho completo. ---- */
+    .field-demo{ max-width:100%; width:100%; }
+
+    /* ---- 07. ICONOGRAFÍA
+       Grilla fija de 3 columnas pensada para el ancho de un teléfono
+       (en vez de auto-fill heredado del desktop), con wrap y sin scroll. ---- */
+    .icon-grid{
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+    }
+    .icon-cell{ padding:14px 6px; }
+    .icon-cell img{ width:28px; height:28px; }
+    .icon-cell span{ font-size:9px; }
+
+    /* ---- 08. SISTEMA RESPONSIVE
+       Desktop: label + barra + texto en una sola fila. Mobile: la barra
+       pasa a ocupar el ancho completo disponible y el texto queda debajo. ---- */
+    .bp-row{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:6px;
+      padding:14px 0;
+    }
+    .bp-label{ width:auto; }
+    .bp-bar{ width:100% !important; } /* pisa el width inline por breakpoint del desktop */
+    .bp-use{ width:100%; }
+
+    /* ---- 09. MOTION & EFECTOS
+       Desktop: fila con nombre a la izquierda y valor a la derecha
+       (tabla comprimida). Mobile: cada fila se reorganiza en columna,
+       nombre arriba y valor debajo, a ancho completo. ---- */
+    .anim-card{
+      flex-direction:column;
+      align-items:flex-start;
+      gap:6px;
+      padding:16px 18px;
+    }
+    .anim-card__name{ font-size:12px; }
+    .anim-card__val{ font-size:11px; }
   }
